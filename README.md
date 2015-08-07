@@ -12,3 +12,4 @@ This app contains the following features :
 - Image/Data Caching
 - [Resilient Services](http://arteksoftware.com/resilient-network-services-with-xamarin/)
 - Test Clouded
+- Clean ViewModels using [Fody](http://arteksoftware.com/fody-propertychanged-xamarin-studio/)
