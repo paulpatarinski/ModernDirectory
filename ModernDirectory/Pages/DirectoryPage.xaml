@@ -1,6 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ModernDirectory.Pages.DirectoryPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ModernDirectory.Pages.DirectoryPage" Padding="0,20,0,0">
 	<ContentPage.Content>
-		<Label Text="{Binding SampleText}" HorizontalOptions="Center" VerticalOptions="Center"/>
+		<StackLayout Spacing="10">
+			<Label Text="Sample listview" HorizontalOptions="Center" />
+			<ListView ItemsSource="{Binding People}">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<TextCell Text="{Binding FirstName}"/>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

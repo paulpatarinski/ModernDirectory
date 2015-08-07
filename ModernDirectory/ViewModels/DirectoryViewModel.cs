@@ -1,7 +1,8 @@
 ﻿using PropertyChanged;
 using System.Threading.Tasks;
 using System;
-using Xamarin.Forms;
+using System.Collections.ObjectModel;
+using ModernDirectory.Models;
 
 namespace ModernDirectory.ViewModels
 {
@@ -11,9 +12,12 @@ namespace ModernDirectory.ViewModels
 		public DirectoryViewModel ()
 		{
 			SampleText = "Loading...";
-			
+			People = new ObservableCollection<Person> ();
+
 			Task.Delay (TimeSpan.FromSeconds (2)).ContinueWith ((r) => {
-				SampleText = "John Doe";
+				for (int i = 0; i < 10; i++) {
+					People.Add (new Person{FirstName = "John", LastName = "Doe"});
+				}
 			});
 		}
 
@@ -22,6 +26,9 @@ namespace ModernDirectory.ViewModels
 			set;
 		}
 
-
+		public ObservableCollection<Person> People {
+			get;
+			set;
+		}
 	}
 }
