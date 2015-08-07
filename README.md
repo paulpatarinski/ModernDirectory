@@ -7,7 +7,7 @@ This app contains the following features :
 - Incremental loading
 - Search
 - Modern UI inspired by http://pttrns.com/
-- Default image with initials
+- Default Image with initials via [RoundedBoxView](https://github.com/paulpatarinski/Xamarin.Forms.Plugins/tree/master/RoundedBoxView)
 - Async image loading
 - Image/Data Caching
 - [Resilient Services](http://arteksoftware.com/resilient-network-services-with-xamarin/)
