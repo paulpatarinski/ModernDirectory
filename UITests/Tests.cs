@@ -26,10 +26,11 @@ namespace ModernDirectory.UITests
 		}
 
 		[Test]
-		public void WelcomeTextIsDisplayed ()
+		public void DirectoryListivewRenders ()
 		{
-			AppResult[] results = app.WaitForElement (c => c.Marked ("Welcome to Xamarin Forms!"));
-			app.Screenshot ("Welcome screen.");
+			AppResult[] results = app.WaitForElement (c => c.Marked ("Sample listview"));
+
+			app.Screenshot ("Directory Listview.");
 
 			Assert.IsTrue (results.Any ());
 		}
