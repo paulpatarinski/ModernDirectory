@@ -1,4 +1,6 @@
 ﻿using Xamarin.Forms;
+using System.ServiceModel.Channels;
+using ModernDirectory.ViewModels;
 
 namespace ModernDirectory.Pages
 {
@@ -7,6 +9,7 @@ namespace ModernDirectory.Pages
 		public DirectoryPage ()
 		{
 			InitializeComponent ();
+			BindingContext = new DirectoryViewModel ();
 		}
 	}
 }
