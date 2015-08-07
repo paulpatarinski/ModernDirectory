@@ -1,6 +1,4 @@
 ﻿using PropertyChanged;
-using System.Threading.Tasks;
-using System;
 using System.Collections.ObjectModel;
 using ModernDirectory.Models;
 
@@ -14,11 +12,9 @@ namespace ModernDirectory.ViewModels
 			SampleText = "Loading...";
 			People = new ObservableCollection<Person> ();
 
-			Task.Delay (TimeSpan.FromSeconds (2)).ContinueWith ((r) => {
-				for (int i = 0; i < 10; i++) {
-					People.Add (new Person{FirstName = "John", LastName = "Doe"});
-				}
-			});
+			for (int i = 0; i < 100; i++) {
+				People.Add (new Person{FirstName = "John", LastName = "Doe"});
+			}
 		}
 
 		public string SampleText {

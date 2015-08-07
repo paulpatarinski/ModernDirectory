@@ -1,12 +1,8 @@
-﻿using System;
-
+﻿
 using Android.App;
-using Android.Content;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
+using RoundedBoxView.Forms.Plugin.Droid;
 
 namespace ModernDirectory.Droid
 {
@@ -18,6 +14,7 @@ namespace ModernDirectory.Droid
 			base.OnCreate (bundle);
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
+			RoundedBoxViewRenderer.Init ();
 
 			LoadApplication (new App ());
 		}

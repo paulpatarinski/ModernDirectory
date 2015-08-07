@@ -1,14 +1,33 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ModernDirectory.Pages.DirectoryPage" Padding="0,20,0,0">
+<ContentPage 
+		 xmlns="http://xamarin.com/schemas/2014/forms"
+		 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	     xmlns:customControls="clr-namespace:RoundedBoxView.Forms.Plugin.Abstractions;assembly=RoundedBoxView.Forms.Plugin.Abstractions"
+		 x:Class="ModernDirectory.Pages.DirectoryPage" 
+		 Padding="0,20,0,0" BackgroundColor="White">
+    <ContentPage.Resources>
+	    <ResourceDictionary>
+	    	<Color x:Key="Green500">#4CAF50</Color>
+	    </ResourceDictionary>
+    </ContentPage.Resources>
+
 	<ContentPage.Content>
 		<StackLayout Spacing="10">
-			<Label Text="Sample listview" HorizontalOptions="Center" />
-			<ListView ItemsSource="{Binding People}">
-			<ListView.ItemTemplate>
-				<DataTemplate>
-					<TextCell Text="{Binding FirstName}"/>
-				</DataTemplate>
-			</ListView.ItemTemplate>
+			<Label Text="Sample listview" HorizontalOptions="Center" TextColor="Black" />
+			<ListView ItemsSource="{Binding People}" RowHeight="70" SeparatorVisibility="None">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<RelativeLayout>
+								<customControls:RoundedBoxView CornerRadius="28" BackgroundColor="{StaticResource Green500}"
+									RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.05}"
+									RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.1}"
+									RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.15}"
+									RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.8}"/>
+							</RelativeLayout>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
 			</ListView>
 		</StackLayout>
 	</ContentPage.Content>

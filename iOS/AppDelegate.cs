@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using RoundedBoxView.Forms.Plugin.iOSUnified;
 
 namespace ModernDirectory.iOS
 {
@@ -13,6 +14,7 @@ namespace ModernDirectory.iOS
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.Init ();
+			RoundedBoxViewRenderer.Init ();
 
 			// Code for starting up the Xamarin Test Cloud Agent
 			#if ENABLE_TEST_CLOUD
