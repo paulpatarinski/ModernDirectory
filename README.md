@@ -10,5 +10,5 @@ This app contains the following features :
 - Default image with initials
 - Async image loading
 - Image/Data Caching
-- Resilient Services
+- [Resilient Services](http://arteksoftware.com/resilient-network-services-with-xamarin/)
 - Test Clouded
