@@ -13,6 +13,12 @@ namespace ModernDirectory.Models
 			get;
 			set;
 		}
+
+		public string FullName {
+			get{
+				return FirstName + " " + LastName;			
+			}
+		}
 	}
 }
 

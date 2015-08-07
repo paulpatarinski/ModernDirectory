@@ -9,6 +9,10 @@
 	    <ResourceDictionary>
 	    	<Color x:Key="Green500">#4CAF50</Color>
 	    	<Color x:Key="Gray200">#EEEEEE</Color>
+	    	<Style x:Key="FullNameStyle" TargetType="Label">
+	    		<Setter Property="TextColor" Value="Black"/>
+	    		<Setter Property="Font" Value="Bold"/>
+	    	</Style>
 	    </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -21,10 +25,16 @@
 						<ViewCell>
 							<RelativeLayout>
 								<customControls:RoundedBoxView CornerRadius="28" BackgroundColor="{StaticResource Green500}"
-									RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.05}"
+									RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.04}"
 									RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.1}"
 									RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.15}"
 									RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.8}"/>
+
+								<Label Text="{Binding FullName}" Style="{StaticResource FullNameStyle}"
+									RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.23}"
+									RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.23}"
+									RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.75}"
+									RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.2}"/>
 
 								<BoxView BackgroundColor="{StaticResource Gray200}"
 									RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0}"
