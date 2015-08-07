@@ -11,6 +11,7 @@
 	    	<Color x:Key="Green500">#4CAF50</Color>
 	    	<Color x:Key="Grey200">#EEEEEE</Color>
 	    	<Color x:Key="Grey400">#BDBDBD</Color>
+	    	<Color x:Key="Cyan600">#00ACC1</Color>
 
 	    	<Style x:Key="FullNameStyle" TargetType="Label">
 	    		<Setter Property="TextColor" Value="Black"/>
@@ -20,6 +21,11 @@
 	    		<Setter Property="TextColor" Value="{StaticResource Grey400}"/>
 	    		<Setter Property="Font" Value="Small"/>
 	    	</Style>
+	    	<Style x:Key="InitialsTextStyle" TargetType="Label">
+	    		<Setter Property="TextColor" Value="White"/>
+	    		<Setter Property="Font" Value="Large"/>
+	    	</Style>
+
 	    </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -31,11 +37,25 @@
 					<DataTemplate>
 						<ViewCell>
 							<RelativeLayout>
-								<customControls:RoundedBoxView CornerRadius="28" BackgroundColor="{StaticResource Green500}"
-									RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.04}"
-									RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.1}"
-									RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.15}"
-									RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.8}"/>
+								<RelativeLayout x:Name="Initials"
+											RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.04}"
+											RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.1}"
+											RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.15}"
+											RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.8}">
+
+										<customControls:RoundedBoxView CornerRadius="28" BackgroundColor="{StaticResource Cyan600}"
+											RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0}"
+											RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0}"
+											RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
+											RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"/>
+
+										<Label Text="{Binding Initials}" Style="{StaticResource InitialsTextStyle}" XAlign="Center" YAlign="Center"
+											RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0}"
+											RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0}"
+											RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
+											RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"/>
+								</RelativeLayout>
+								
 
 								<Label Text="{Binding FullName}" Style="{StaticResource FullNameStyle}"
 									RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.23}"

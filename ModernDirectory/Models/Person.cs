@@ -1,4 +1,5 @@
 ﻿using System;
+using ModernDirectory.Utilities.ExtensionsMethods;
 
 namespace ModernDirectory.Models
 {
@@ -20,10 +21,19 @@ namespace ModernDirectory.Models
 			}
 		}
 
+		public string Initials
+		{
+			get{
+				return FullName.GetInitials ();
+			}
+		}
+
 		public string PhoneNumber {
 			get;
 			set;
 		}
+
+
 	}
 }
 
