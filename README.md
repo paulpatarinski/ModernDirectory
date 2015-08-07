@@ -6,7 +6,7 @@ This app contains the following features :
 
 - Incremental loading
 - Search
-- Modern UI
+- Modern UI inspired by http://pttrns.com/
 - Default image with initials
 - Async image loading
 - Image/Data Caching
