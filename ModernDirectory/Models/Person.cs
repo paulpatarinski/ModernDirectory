@@ -19,6 +19,11 @@ namespace ModernDirectory.Models
 				return FirstName + " " + LastName;			
 			}
 		}
+
+		public string PhoneNumber {
+			get;
+			set;
+		}
 	}
 }
 

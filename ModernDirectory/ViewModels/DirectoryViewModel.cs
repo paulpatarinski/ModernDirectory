@@ -1,6 +1,7 @@
 ﻿using PropertyChanged;
 using System.Collections.ObjectModel;
 using ModernDirectory.Models;
+using System;
 
 namespace ModernDirectory.ViewModels
 {
@@ -13,7 +14,7 @@ namespace ModernDirectory.ViewModels
 			People = new ObservableCollection<Person> ();
 
 			for (int i = 0; i < 100; i++) {
-				People.Add (new Person{FirstName = "John", LastName = "Doe"});
+				People.Add (new Person{FirstName = "John", LastName = "Doe", PhoneNumber = String.Format ("(773) 782-234{0}", i % 10)});
 			}
 		}
 

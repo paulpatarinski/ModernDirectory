@@ -7,11 +7,18 @@
 		 Padding="0,20,0,0" BackgroundColor="White">
     <ContentPage.Resources>
 	    <ResourceDictionary>
+<!--	    	Material Design Colors-->
 	    	<Color x:Key="Green500">#4CAF50</Color>
-	    	<Color x:Key="Gray200">#EEEEEE</Color>
+	    	<Color x:Key="Grey200">#EEEEEE</Color>
+	    	<Color x:Key="Grey400">#BDBDBD</Color>
+
 	    	<Style x:Key="FullNameStyle" TargetType="Label">
 	    		<Setter Property="TextColor" Value="Black"/>
 	    		<Setter Property="Font" Value="Bold"/>
+	    	</Style>
+	    	<Style x:Key="DetailTextStyle" TargetType="Label">
+	    		<Setter Property="TextColor" Value="{StaticResource Grey400}"/>
+	    		<Setter Property="Font" Value="Small"/>
 	    	</Style>
 	    </ResourceDictionary>
     </ContentPage.Resources>
@@ -34,9 +41,15 @@
 									RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.23}"
 									RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.23}"
 									RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.75}"
-									RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.2}"/>
+									RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.23}"/>
 
-								<BoxView BackgroundColor="{StaticResource Gray200}"
+								<Label Text="{Binding PhoneNumber}" Style="{StaticResource DetailTextStyle}"
+									RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.23}"
+									RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.53}"
+									RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.75}"
+									RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.23}"/>
+
+								<BoxView BackgroundColor="{StaticResource Grey200}"
 									RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0}"
 									RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.98}"
 									RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
