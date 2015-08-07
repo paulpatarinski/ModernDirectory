@@ -8,6 +8,7 @@
     <ContentPage.Resources>
 	    <ResourceDictionary>
 	    	<Color x:Key="Green500">#4CAF50</Color>
+	    	<Color x:Key="Gray200">#EEEEEE</Color>
 	    </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -24,6 +25,12 @@
 									RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.1}"
 									RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.15}"
 									RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.8}"/>
+
+								<BoxView BackgroundColor="{StaticResource Gray200}"
+									RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0}"
+									RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.98}"
+									RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
+									RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.02}"/>
 							</RelativeLayout>
 						</ViewCell>
 					</DataTemplate>
