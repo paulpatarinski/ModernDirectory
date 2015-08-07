@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using ModernDirectory.Models;
 using System;
+using System.Threading.Tasks;
 
 namespace ModernDirectory.ViewModels
 {
@@ -12,10 +13,7 @@ namespace ModernDirectory.ViewModels
 		{
 			SampleText = "Loading...";
 			People = new ObservableCollection<Person> ();
-
-			for (int i = 0; i < 100; i++) {
-				People.Add (new Person{FirstName = "John", LastName = "Doe", PhoneNumber = String.Format ("(773) 782-234{0}", i % 10)});
-			}
+			LoadDirectoryItemsAsync ();
 		}
 
 		public string SampleText {
@@ -26,6 +24,17 @@ namespace ModernDirectory.ViewModels
 		public ObservableCollection<Person> People {
 			get;
 			set;
+		}
+
+
+		private async Task LoadDirectoryItemsAsync()
+		{
+			//todo Replace with service call
+			await Task.Run (() => {
+				for (int i = 0; i < 100; i++) {
+					People.Add (new Person{FirstName = "John", LastName = "Doe", PhoneNumber = String.Format ("(773) 782-234{0}", i % 10)});
+				}		
+			});
 		}
 	}
 }
