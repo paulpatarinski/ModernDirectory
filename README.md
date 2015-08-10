@@ -16,6 +16,6 @@ This app contains the following features :
 - Test Clouded
 - Clean ViewModels using [Fody](http://arteksoftware.com/fody-propertychanged-xamarin-studio/)
 
-Screenshots
+##Screenshots
 
 ![Main](Screenshots/ModernDirectory_1.png)
