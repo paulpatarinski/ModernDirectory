@@ -5,6 +5,7 @@ Modern Directory is a Sample App demonstrating how to create an engaging Employe
 This app contains the following features : 
 
 - Incremental loading
+- Native performance via [FastCell](https://github.com/georgejecook/xamarinFastCell)
 - Search
 - Modern UI inspired by http://pttrns.com/
 - Default Image with initials via [RoundedBoxView](https://github.com/paulpatarinski/Xamarin.Forms.Plugins/tree/master/RoundedBoxView)
