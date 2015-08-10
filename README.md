@@ -15,3 +15,7 @@ This app contains the following features :
 - [Resilient Services](http://arteksoftware.com/resilient-network-services-with-xamarin/)
 - Test Clouded
 - Clean ViewModels using [Fody](http://arteksoftware.com/fody-propertychanged-xamarin-studio/)
+
+##Screenshots
+
+![Main](Screenshots/ModernDirectory_1.png)
