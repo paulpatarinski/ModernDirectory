@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ModernDirectory.App">
+  <Application.Resources>
+    <ResourceDictionary>
+    <!--	    	Material Design Colors-->
+	    	<Color x:Key="Green500">#4CAF50</Color>
+	    	<Color x:Key="Grey200">#EEEEEE</Color>
+	    	<Color x:Key="Grey400">#BDBDBD</Color>
+	    	<Color x:Key="Cyan600">#00ACC1</Color>
+
+	    	<Style x:Key="FullNameStyle" TargetType="Label">
+	    		<Setter Property="TextColor" Value="Black"/>
+	    		<Setter Property="Font" Value="Bold"/>
+	    	</Style>
+	    	<Style x:Key="DetailTextStyle" TargetType="Label">
+	    		<Setter Property="TextColor" Value="{StaticResource Grey400}"/>
+	    		<Setter Property="Font" Value="Small"/>
+	    	</Style>
+	    	<Style x:Key="InitialsTextStyle" TargetType="Label">
+	    		<Setter Property="TextColor" Value="White"/>
+	    		<Setter Property="Font" Value="Large"/>
+	    	</Style>
+   
+  	</ResourceDictionary>
+  </Application.Resources>
+</Application>
