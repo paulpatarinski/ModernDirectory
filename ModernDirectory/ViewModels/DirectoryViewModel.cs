@@ -10,7 +10,7 @@ namespace ModernDirectory.ViewModels
 {
 	[ImplementPropertyChanged]
 	public class DirectoryViewModel
-	{
+	{ 
 		public DirectoryViewModel ()
 		{
 			SampleText = "Loading...";
@@ -23,6 +23,11 @@ namespace ModernDirectory.ViewModels
 		}
 
 		public ObservableCollection<Person> People {
+			get;
+			set;
+		}
+
+		public bool IsBusy {
 			get;
 			set;
 		}
@@ -40,10 +45,12 @@ namespace ModernDirectory.ViewModels
 
 		private async Task LoadMoreExecute(PagedDataQuery query)
 		{
+			IsBusy = true;
+
 			//Simulate server call
 			await Task.Delay (TimeSpan.FromSeconds (SERVER_CALL_DELAY_IN_SEC)).ContinueWith ((r) => {
 				Device.BeginInvokeOnMainThread (() => {
-
+					IsBusy = false;
 					for (int i = 0; i < query.PageSize; i++) {
 						People.Add (new Person{FirstName = "John", LastName = "Doe", PhoneNumber = String.Format ("(773) 782-234{0}", i % 10)});
 					}	

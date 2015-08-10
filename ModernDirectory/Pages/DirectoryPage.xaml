@@ -16,6 +16,7 @@
 					</DataTemplate>
 				</customControls2:ExtendedListview.ItemTemplate>
 			</customControls2:ExtendedListview>
+			<ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HeightRequest="60" HorizontalOptions="FillAndExpand" />
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
