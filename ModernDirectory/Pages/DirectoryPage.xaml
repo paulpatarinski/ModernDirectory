@@ -9,7 +9,8 @@
 
 	<ContentPage.Content>
 		<StackLayout Spacing="10">
-			<customControls2:ExtendedListview x:Name="peopleListview" ItemsSource="{Binding People}" LoadMoreCommand="{Binding LoadMore}" RowHeight="70" SeparatorVisibility="None" ItemSelected="Listview_ItemSelected">
+			<customControls2:ExtendedListview x:Name="peopleListview" ItemsSource="{Binding People}" LoadMoreCommand="{Binding LoadMore}" 
+											  RowHeight="70" SeparatorVisibility="None" PageSize="20" ItemSelected="Listview_ItemSelected">
 				<customControls2:ExtendedListview.ItemTemplate>
 					<DataTemplate>
 						<cells:DirectoryItemCell/>
