@@ -36,10 +36,14 @@ namespace ModernDirectory.ViewModels
 			}
 		}
 
+		private const int SERVER_CALL_DELAY_IN_SEC = 1;
+
 		private async Task LoadMoreExecute(PagedDataQuery query)
 		{
-			await Task.Run (() => {
+			//Simulate server call
+			await Task.Delay (TimeSpan.FromSeconds (SERVER_CALL_DELAY_IN_SEC)).ContinueWith ((r) => {
 				Device.BeginInvokeOnMainThread (() => {
+
 					for (int i = 0; i < query.PageSize; i++) {
 						People.Add (new Person{FirstName = "John", LastName = "Doe", PhoneNumber = String.Format ("(773) 782-234{0}", i % 10)});
 					}	
