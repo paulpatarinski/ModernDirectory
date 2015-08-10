@@ -28,6 +28,10 @@
 	    		<Setter Property="Padding" Value="{StaticResource ContentPagePadding}"/>
 	    		<Setter Property="BackgroundColor" Value="White"/>
 	    	</Style>
+
+	    	<Style TargetType="Label">
+	    		<Setter Property="TextColor" Value="Black"/>
+	    	</Style>
    
   	</ResourceDictionary>
   </Application.Resources>
