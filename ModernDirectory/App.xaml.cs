@@ -12,7 +12,7 @@ namespace ModernDirectory
 		{
 			InitializeComponent ();
 			// The root page of your application
-			MainPage = new DirectoryPage ();
+			MainPage = new NavigationPage( new DirectoryPage ());
 		}
 
 		protected override void OnStart ()

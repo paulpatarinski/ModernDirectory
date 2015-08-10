@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿
 using Xamarin.Forms;
+using ModernDirectory.Models;
 
 namespace ModernDirectory.Pages
 {
 	public partial class DirectoryDetailPage : ContentPage
 	{
-		public DirectoryDetailPage ()
+		public DirectoryDetailPage (Person person)
 		{
 			InitializeComponent ();
 		}
 	}
 }
-

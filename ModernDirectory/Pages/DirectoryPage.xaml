@@ -4,13 +4,11 @@
 		 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	     xmlns:customControls="clr-namespace:RoundedBoxView.Forms.Plugin.Abstractions;assembly=RoundedBoxView.Forms.Plugin.Abstractions"
 	     xmlns:cells="clr-namespace:ModernDirectory.CustomControls.Cells;assembly=ModernDirectory"
-		 x:Class="ModernDirectory.Pages.DirectoryPage" 
-		 Padding="0,20,0,0" BackgroundColor="White">
+		 x:Class="ModernDirectory.Pages.DirectoryPage" Style="{StaticResource DefaultContentPageStyle}">
 
 	<ContentPage.Content>
 		<StackLayout Spacing="10">
-			<Label Text="Sample listview" HorizontalOptions="Center" TextColor="Black" />
-			<ListView ItemsSource="{Binding People}" RowHeight="70" SeparatorVisibility="None">
+			<ListView x:Name="peopleListview" ItemsSource="{Binding People}" RowHeight="70" SeparatorVisibility="None" ItemSelected="Listview_ItemSelected">
 				<ListView.ItemTemplate>
 					<DataTemplate>
 						<cells:DirectoryItemCell/>
