@@ -50,6 +50,8 @@
       <DependentUpon>DirectoryDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\DirectoryDetailViewModel.cs" />
+    <Compile Include="Models\PagedDataQuery.cs" />
+    <Compile Include="CustomControls\ExtendedListview.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets')" />

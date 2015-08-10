@@ -4,17 +4,18 @@
 		 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	     xmlns:customControls="clr-namespace:RoundedBoxView.Forms.Plugin.Abstractions;assembly=RoundedBoxView.Forms.Plugin.Abstractions"
 	     xmlns:cells="clr-namespace:ModernDirectory.CustomControls.Cells;assembly=ModernDirectory"
+	     xmlns:customControls2="clr-namespace:ModernDirectory.CustomControls;assembly=ModernDirectory"
 		 x:Class="ModernDirectory.Pages.DirectoryPage" Style="{StaticResource DefaultContentPageStyle}" Title="Directory">
 
 	<ContentPage.Content>
 		<StackLayout Spacing="10">
-			<ListView x:Name="peopleListview" ItemsSource="{Binding People}" RowHeight="70" SeparatorVisibility="None" ItemSelected="Listview_ItemSelected">
-				<ListView.ItemTemplate>
+			<customControls2:ExtendedListview x:Name="peopleListview" ItemsSource="{Binding People}" LoadMoreCommand="{Binding LoadMore}" RowHeight="70" SeparatorVisibility="None" ItemSelected="Listview_ItemSelected">
+				<customControls2:ExtendedListview.ItemTemplate>
 					<DataTemplate>
 						<cells:DirectoryItemCell/>
 					</DataTemplate>
-				</ListView.ItemTemplate>
-			</ListView>
+				</customControls2:ExtendedListview.ItemTemplate>
+			</customControls2:ExtendedListview>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

@@ -3,6 +3,8 @@ using System.Collections.ObjectModel;
 using ModernDirectory.Models;
 using System;
 using System.Threading.Tasks;
+using Xamarin.Forms;
+using System.Windows.Input;
 
 namespace ModernDirectory.ViewModels
 {
@@ -13,7 +15,6 @@ namespace ModernDirectory.ViewModels
 		{
 			SampleText = "Loading...";
 			People = new ObservableCollection<Person> ();
-			LoadDirectoryItemsAsync ();
 		}
 
 		public string SampleText {
@@ -26,12 +27,19 @@ namespace ModernDirectory.ViewModels
 			set;
 		}
 
-
-		private async Task LoadDirectoryItemsAsync()
+		public ICommand LoadMore
 		{
-			//todo Replace with service call
+			get
+			{
+				return new Command<PagedDataQuery>(async query =>
+				await LoadMoreExecute (query));
+			}
+		}
+
+		private async Task LoadMoreExecute(PagedDataQuery query)
+		{
 			await Task.Run (() => {
-				for (int i = 0; i < 100; i++) {
+				for (int i = 0; i < query.PageSize; i++) {
 					People.Add (new Person{FirstName = "John", LastName = "Doe", PhoneNumber = String.Format ("(773) 782-234{0}", i % 10)});
 				}		
 			});
