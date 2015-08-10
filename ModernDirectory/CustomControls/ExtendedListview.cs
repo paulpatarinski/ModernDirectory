@@ -84,7 +84,7 @@ namespace ModernDirectory.CustomControls
 		}
 
 
-		private void ExtendedListview_ItemAppearing (object sender, ItemVisibilityEventArgs e)
+		public void ExtendedListview_ItemAppearing (object sender, ItemVisibilityEventArgs e)
 		{
 			var items = ItemsSource as IList;
 

@@ -88,6 +88,8 @@ namespace TwinTechs.Ios.Controls
 			var nativeCell = reusableCell as NativeCell;
 			var viewCell = item as FastCell;
 
+			Device.BeginInvokeOnMainThread (new Action (viewCell.SendAppearing));
+
 			if (reusableCell == null) {
 				nativeCell = new NativeCell (cellId, viewCell);
 			} else {

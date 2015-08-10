@@ -1,5 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
+using ModernDirectory.CustomControls;
 
 
 namespace TwinTechs.Controls
@@ -50,6 +51,15 @@ namespace TwinTechs.Controls
 		/// </summary>
 		/// <param name="isRecycled">If set to <c>true</c> is recycled.</param>
 		protected abstract void SetupCell (bool isRecycled);
+
+		public void SendAppearing ()
+		{
+			var listview = Parent as ExtendedListview;
+
+			if (listview != null) {
+				listview.ExtendedListview_ItemAppearing (listview, new ItemVisibilityEventArgs(BindingContext));
+			}
+		}
 	}
 }
 
