@@ -4,7 +4,7 @@
 		 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	     xmlns:customControls="clr-namespace:RoundedBoxView.Forms.Plugin.Abstractions;assembly=RoundedBoxView.Forms.Plugin.Abstractions"
 	     xmlns:cells="clr-namespace:ModernDirectory.CustomControls.Cells;assembly=ModernDirectory"
-		 x:Class="ModernDirectory.Pages.DirectoryPage" Style="{StaticResource DefaultContentPageStyle}">
+		 x:Class="ModernDirectory.Pages.DirectoryPage" Style="{StaticResource DefaultContentPageStyle}" Title="Directory">
 
 	<ContentPage.Content>
 		<StackLayout Spacing="10">
