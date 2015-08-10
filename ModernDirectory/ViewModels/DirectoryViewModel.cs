@@ -39,9 +39,11 @@ namespace ModernDirectory.ViewModels
 		private async Task LoadMoreExecute(PagedDataQuery query)
 		{
 			await Task.Run (() => {
-				for (int i = 0; i < query.PageSize; i++) {
-					People.Add (new Person{FirstName = "John", LastName = "Doe", PhoneNumber = String.Format ("(773) 782-234{0}", i % 10)});
-				}		
+				Device.BeginInvokeOnMainThread (() => {
+					for (int i = 0; i < query.PageSize; i++) {
+						People.Add (new Person{FirstName = "John", LastName = "Doe", PhoneNumber = String.Format ("(773) 782-234{0}", i % 10)});
+					}	
+				});
 			});
 		}
 	}
