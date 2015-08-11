@@ -30,7 +30,7 @@
 				RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.92}"
 				RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
 				RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.08}"
-				IsRunning="{Binding IsBusy}" BackgroundColor="#CCFFFFFF">
+				IsRunning="{Binding IsBusy}" Opacity="0" BackgroundColor="#CCFFFFFF">
 					<ActivityIndicator.Behaviors>
 						<behaviors:FadeToBehavior From="0" To="1"/>
 					</ActivityIndicator.Behaviors>
