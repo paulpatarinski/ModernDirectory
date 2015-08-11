@@ -2,6 +2,7 @@
 using System.ServiceModel.Channels;
 using ModernDirectory.ViewModels;
 using ModernDirectory.Models;
+using ModernDirectory.Services;
 
 namespace ModernDirectory.Pages
 {
@@ -10,7 +11,7 @@ namespace ModernDirectory.Pages
 		public DirectoryPage ()
 		{
 			InitializeComponent ();
-			BindingContext = new DirectoryViewModel ();
+			BindingContext = new DirectoryViewModel (new DirectoryService());
 		}
 
 		private async void Listview_ItemSelected (object sender, SelectedItemChangedEventArgs e)

@@ -5,17 +5,21 @@ using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Windows.Input;
+using ModernDirectory.Services;
 
 namespace ModernDirectory.ViewModels
 {
 	[ImplementPropertyChanged]
 	public class DirectoryViewModel
 	{ 
-		public DirectoryViewModel ()
+		public DirectoryViewModel (IDirectoryService directoryService)
 		{
+			_directoryService = directoryService;
 			SampleText = "Loading...";
 			People = new ObservableCollection<Person> ();
 		}
+
+		private IDirectoryService _directoryService;
 
 		public string SampleText {
 			get;
@@ -32,30 +36,47 @@ namespace ModernDirectory.ViewModels
 			set;
 		}
 
+		public bool IsRefreshing {
+			get;
+			set;
+		}
+
 		public ICommand LoadMore
 		{
 			get
 			{
 				return new Command<PagedDataQuery>(async query =>
-				await LoadMoreExecute (query));
+					await LoadMoreExecute (query)
+					, query => !IsBusy);
 			}
 		}
 
-		private const int SERVER_CALL_DELAY_IN_SEC = 1;
 
 		private async Task LoadMoreExecute(PagedDataQuery query)
 		{
-			IsBusy = true;
+			if(query.PageNumber == 1)
+			{
+				IsRefreshing = true;
+			}
+			else{
+				IsBusy = true;
+			}
 
-			//Simulate server call
-			await Task.Delay (TimeSpan.FromSeconds (SERVER_CALL_DELAY_IN_SEC)).ContinueWith ((r) => {
-				Device.BeginInvokeOnMainThread (() => {
-					IsBusy = false;
-					for (int i = 0; i < query.PageSize; i++) {
-						People.Add (new Person{FirstName = "John", LastName = "Doe", PhoneNumber = String.Format ("(773) 782-234{0}", i % 10)});
-					}	
-				});
-			});
+			var people = await _directoryService.GetPeopleAsync (query);
+
+			foreach(var person in people)
+			{
+				People.Add (person);
+			}
+
+			if(query.PageNumber == 1)
+			{
+				IsRefreshing = false;
+			}
+			else{
+				IsBusy = false;
+			}
+
 		}
 	}
 }
