@@ -4,8 +4,8 @@ Modern Directory is a Sample App demonstrating how to create an engaging Employe
 
 This app contains the following features : 
 
-- Infinite scroll
-- Pull to refresh
+- Infinite Scroll
+- Pull To Refresh
 - Native performance via [FastCell](https://github.com/georgejecook/xamarinFastCell)
 - Search
 - Modern UI inspired by http://pttrns.com/
