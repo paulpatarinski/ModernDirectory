@@ -1,7 +1,6 @@
 ﻿using PropertyChanged;
 using System.Collections.ObjectModel;
 using ModernDirectory.Models;
-using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Windows.Input;
@@ -15,16 +14,11 @@ namespace ModernDirectory.ViewModels
 		public DirectoryViewModel (IDirectoryService directoryService)
 		{
 			_directoryService = directoryService;
-			SampleText = "Loading...";
+			IsRefreshing = true;
 			People = new ObservableCollection<Person> ();
 		}
 
 		private IDirectoryService _directoryService;
-
-		public string SampleText {
-			get;
-			set;
-		}
 
 		public ObservableCollection<Person> People {
 			get;
