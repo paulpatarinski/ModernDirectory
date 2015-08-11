@@ -17,7 +17,13 @@ namespace ModernDirectory.Services
 			//Simulate server call
 			await Task.Delay (TimeSpan.FromSeconds (SERVER_CALL_DELAY_IN_SEC)).ContinueWith ((r) => {
 				for (int i = 0; i < query.PageSize; i++) {
-					result.Add (new Person{FirstName = "John", LastName = "Doe", PhoneNumber = String.Format ("(773) 782-234{0}", i % 10)});
+					if(i % 2 == 0)
+					{
+						result.Add (new Person{FirstName = "John", LastName = "Doe", PhoneNumber = String.Format ("(773) 782-234{0}", i % 10)});
+					}
+					else{
+						result.Add (new Person{FirstName = "Jane", LastName = "Doe", PhoneNumber = String.Format ("(224) 323-234{0}", i % 10)});
+					}
 				}	
 			});
 
