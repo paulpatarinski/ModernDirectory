@@ -31,7 +31,7 @@
 				</customControls2:ExtendedListview.ItemTemplate>
 			</customControls2:ExtendedListview>
 
-			<SearchBar Placeholder="Search for people" BackgroundColor="{StaticResource SearchBarBackground}" CancelButtonColor="White"
+			<SearchBar x:Name="searchBar" Placeholder="Search for people" TextChanged="SearchBar_OnTextChanged" BackgroundColor="{StaticResource SearchBarBackground}" CancelButtonColor="White"
 					   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0}"
 					   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0}"
 					   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
