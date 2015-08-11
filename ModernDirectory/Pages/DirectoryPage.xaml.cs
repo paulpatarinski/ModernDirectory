@@ -12,6 +12,9 @@ namespace ModernDirectory.Pages
 		{
 			InitializeComponent ();
 			BindingContext = new DirectoryViewModel (new DirectoryService());
+
+			Device.OnPlatform (Android: () =>
+				NavigationPage.SetHasNavigationBar (this, false));
 		}
 
 		private async void Listview_ItemSelected (object sender, SelectedItemChangedEventArgs e)
