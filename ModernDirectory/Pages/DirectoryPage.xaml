@@ -7,23 +7,35 @@
 	     xmlns:customControls2="clr-namespace:ModernDirectory.CustomControls;assembly=ModernDirectory"
 	     xmlns:behaviors="clr-namespace:ModernDirectory.Utilities.Behaviors;assembly=ModernDirectory"
 		 x:Class="ModernDirectory.Pages.DirectoryPage" Style="{StaticResource DefaultContentPageStyle}" Title="Directory">
-
+	<ContentPage.Resources>
+	    <ResourceDictionary>
+	    	  <OnPlatform x:Key="SearchBarBackground" x:TypeArguments="Color"
+                iOS="{StaticResource Grey300}"
+                Android="{StaticResource Blue500}"
+                WinPhone="{StaticResource Grey500}"/>
+	    </ResourceDictionary>
+	</ContentPage.Resources>
 	<ContentPage.Content>
 		<RelativeLayout>
 			<customControls2:ExtendedListview x:Name="peopleListview" ItemsSource="{Binding People}" LoadMoreCommand="{Binding LoadMore}" 
-											  RowHeight="70" SeparatorVisibility="None" PageSize="20" ItemSelected="Listview_ItemSelected"
-											  IsPullToRefreshEnabled="True" 
-											  IsRefreshing="{Binding IsRefreshing, Mode=OneWay}"
+											RowHeight="70" SeparatorVisibility="None" PageSize="20" ItemSelected="Listview_ItemSelected"
+											IsPullToRefreshEnabled="True" IsRefreshing="{Binding IsRefreshing, Mode=OneWay}"
 											RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0}"
-											RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0}"
+											RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=50}"
 											RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
-											RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}">
+											RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.94}">
 				<customControls2:ExtendedListview.ItemTemplate>
 					<DataTemplate>
 						<cells:DirectoryItemCell/>
 					</DataTemplate>
 				</customControls2:ExtendedListview.ItemTemplate>
 			</customControls2:ExtendedListview>
+
+			<SearchBar Placeholder="Search for people" BackgroundColor="{StaticResource SearchBarBackground}" CancelButtonColor="White"
+					   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0}"
+					   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0}"
+					   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
+					   RelativeLayout.HeightConstraint="{ConstraintExpression Type=Constant, Constant=50}"/>
 
 			<ActivityIndicator 
 				RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0}"

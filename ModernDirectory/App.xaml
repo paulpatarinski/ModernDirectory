@@ -5,8 +5,12 @@
     <!--	    	Material Design Colors-->
 	    	<Color x:Key="Green500">#4CAF50</Color>
 	    	<Color x:Key="Grey200">#EEEEEE</Color>
+	    	<Color x:Key="Grey300">#E0E0E0</Color>
 	    	<Color x:Key="Grey400">#BDBDBD</Color>
+	    	<Color x:Key="Grey500">#9E9E9E</Color>
 	    	<Color x:Key="Cyan600">#00ACC1</Color>
+	    	<Color x:Key="Blue500">#03A9F4</Color>
+
 
 	    	<Style x:Key="FullNameStyle" TargetType="Label">
 	    		<Setter Property="TextColor" Value="Black"/>
