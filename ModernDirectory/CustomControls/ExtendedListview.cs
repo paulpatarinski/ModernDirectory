@@ -118,6 +118,7 @@ namespace ModernDirectory.CustomControls
 
 			if(items == null) return;
 
+			Debug.WriteLine ("Initiating Pull to Refresh...");
 			items.Clear ();
 
 			PageNumber = 0;
@@ -129,6 +130,8 @@ namespace ModernDirectory.CustomControls
 		{
 			PageNumber++;
 
+			Debug.WriteLine (string.Format("Loading Page {0} of Size {1}",PageNumber, PageSize));
+				
 			LoadMoreCommand.Execute(new PagedDataQuery { PageNumber = PageNumber, PageSize = PageSize });
 		}
 	}
