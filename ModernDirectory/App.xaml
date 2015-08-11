@@ -9,7 +9,7 @@
 	    	<Color x:Key="Grey400">#BDBDBD</Color>
 	    	<Color x:Key="Grey500">#9E9E9E</Color>
 	    	<Color x:Key="Cyan600">#00ACC1</Color>
-	    	<Color x:Key="Blue500">#03A9F4</Color>
+	    	<Color x:Key="Blue500">#2196F3</Color>
 
 
 	    	<Style x:Key="FullNameStyle" TargetType="Label">
