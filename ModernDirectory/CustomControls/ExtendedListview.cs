@@ -2,6 +2,8 @@
 using Xamarin.Forms;
 using ModernDirectory.Models;
 using System.Collections;
+using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace ModernDirectory.CustomControls
 {
@@ -11,6 +13,7 @@ namespace ModernDirectory.CustomControls
 		{
 			ItemAppearing += ExtendedListview_ItemAppearing;
 		}
+
 		/// <summary>
 		/// Command that gets executed when more data needs to be loaded, based on Offset
 		/// LoadMaorDotsQuery will have the PageNumber and PageSize
@@ -83,6 +86,19 @@ namespace ModernDirectory.CustomControls
 			LoadMore();
 		}
 
+		protected override void OnPropertyChanged (string propertyName)
+		{
+			base.OnPropertyChanged (propertyName);
+
+			if(propertyName.Equals (IsPullToRefreshEnabledProperty.PropertyName))
+			{
+				if(IsPullToRefreshEnabled)
+				{
+					RefreshCommand = new Command (async () => await ExecuteRefresh (), () => !IsRefreshing); 
+				}
+			}
+		}
+
 
 		public void ExtendedListview_ItemAppearing (object sender, ItemVisibilityEventArgs e)
 		{
@@ -96,11 +112,24 @@ namespace ModernDirectory.CustomControls
 				LoadMore();
 		}
 
+		private async Task ExecuteRefresh()
+		{
+			var items = ItemsSource as IList;
+
+			if(items == null) return;
+
+			items.Clear ();
+
+			PageNumber = 0;
+
+			OnBindingContextChanged ();
+		}
+
 		private void LoadMore()
 		{
-			LoadMoreCommand.Execute(new PagedDataQuery { PageNumber = PageNumber, PageSize = PageSize });
-
 			PageNumber++;
+
+			LoadMoreCommand.Execute(new PagedDataQuery { PageNumber = PageNumber, PageSize = PageSize });
 		}
 	}
 }

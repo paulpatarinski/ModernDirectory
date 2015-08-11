@@ -5,19 +5,37 @@
 	     xmlns:customControls="clr-namespace:RoundedBoxView.Forms.Plugin.Abstractions;assembly=RoundedBoxView.Forms.Plugin.Abstractions"
 	     xmlns:cells="clr-namespace:ModernDirectory.CustomControls.Cells;assembly=ModernDirectory"
 	     xmlns:customControls2="clr-namespace:ModernDirectory.CustomControls;assembly=ModernDirectory"
+	     xmlns:behaviors="clr-namespace:ModernDirectory.Utilities.Behaviors;assembly=ModernDirectory"
 		 x:Class="ModernDirectory.Pages.DirectoryPage" Style="{StaticResource DefaultContentPageStyle}" Title="Directory">
 
 	<ContentPage.Content>
-		<StackLayout Spacing="10">
+		<RelativeLayout>
 			<customControls2:ExtendedListview x:Name="peopleListview" ItemsSource="{Binding People}" LoadMoreCommand="{Binding LoadMore}" 
-											  RowHeight="70" SeparatorVisibility="None" PageSize="20" ItemSelected="Listview_ItemSelected">
+											  RowHeight="70" SeparatorVisibility="None" PageSize="20" ItemSelected="Listview_ItemSelected"
+											  IsPullToRefreshEnabled="True" 
+											  IsRefreshing="{Binding IsRefreshing, Mode=OneWay}"
+											RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0}"
+											RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0}"
+											RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
+											RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}">
 				<customControls2:ExtendedListview.ItemTemplate>
 					<DataTemplate>
 						<cells:DirectoryItemCell/>
 					</DataTemplate>
 				</customControls2:ExtendedListview.ItemTemplate>
 			</customControls2:ExtendedListview>
-			<ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HeightRequest="60" HorizontalOptions="FillAndExpand" />
-		</StackLayout>
+
+			<ActivityIndicator 
+				RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0}"
+				RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.92}"
+				RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
+				RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.08}"
+				IsRunning="{Binding IsBusy}" BackgroundColor="#CCFFFFFF">
+					<ActivityIndicator.Behaviors>
+						<behaviors:FadeToBehavior From="0" To="1"/>
+					</ActivityIndicator.Behaviors>
+				</ActivityIndicator>
+			
+			</RelativeLayout>
 	</ContentPage.Content>
 </ContentPage>
