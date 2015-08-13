@@ -19,3 +19,8 @@ This app contains the following features :
 ##Screenshots
 
 ![Main](Screenshots/ModernDirectory_1.png)
+
+##Thanks To
+
+Joe Suave for http://www.joesauve.com/using-xamarin-auth-with-xamarin-forms/
+Adam Kemp for GetRenderer View Extension method
