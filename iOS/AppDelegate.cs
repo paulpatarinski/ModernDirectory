@@ -5,6 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 using RoundedBoxView.Forms.Plugin.iOSUnified;
+using ImageCircle.Forms.Plugin.iOS;
 
 namespace ModernDirectory.iOS
 {
@@ -15,6 +16,7 @@ namespace ModernDirectory.iOS
 		{
 			global::Xamarin.Forms.Forms.Init ();
 			RoundedBoxViewRenderer.Init ();
+			ImageCircleRenderer.Init ();
 
 			// Code for starting up the Xamarin Test Cloud Agent
 			#if ENABLE_TEST_CLOUD

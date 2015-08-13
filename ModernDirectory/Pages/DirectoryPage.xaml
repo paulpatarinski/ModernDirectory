@@ -18,7 +18,7 @@
 	<ContentPage.Content>
 		<RelativeLayout>
 			<customControls2:ExtendedListview x:Name="peopleListview" ItemsSource="{Binding People}" LoadMoreCommand="{Binding LoadMore}" 
-											RowHeight="70" SeparatorVisibility="None" PageSize="20" ItemSelected="Listview_ItemSelected"
+											RowHeight="70" SeparatorVisibility="None" PageSize="20" Offset="10" ItemSelected="Listview_ItemSelected"
 											IsPullToRefreshEnabled="True" IsRefreshing="{Binding IsRefreshing, Mode=OneWay}"
 											RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0}"
 											RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=50}"

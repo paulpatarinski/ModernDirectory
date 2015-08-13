@@ -3,6 +3,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using RoundedBoxView.Forms.Plugin.Droid;
+using ImageCircle.Forms.Plugin.Droid;
 
 namespace ModernDirectory.Droid
 {
@@ -15,6 +16,7 @@ namespace ModernDirectory.Droid
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
 			RoundedBoxViewRenderer.Init ();
+			ImageCircleRenderer.Init ();
 
 			LoadApplication (new App ());
 		}

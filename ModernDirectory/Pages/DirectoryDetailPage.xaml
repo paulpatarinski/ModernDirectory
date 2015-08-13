@@ -1,14 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-x:Class="ModernDirectory.Pages.DirectoryDetailPage" Style="{StaticResource DefaultContentPageStyle}" Title="Detail">
+		     x:Class="ModernDirectory.Pages.DirectoryDetailPage" Style="{StaticResource DefaultContentPageStyle}"
+	   		 xmlns:imageCircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions" Title="Detail">
 	<ContentPage.Content>
-		<StackLayout HorizontalOptions="Center" Padding="0,20,0,0">
-			<Label Text="First Name"/>
-			<Label Text="{Binding Person.FirstName}"/>
-			<Label Text="Last Name"/>
-			<Label Text="{Binding Person.LastName}"/>
-			<Label Text="Phone Number"/>
-			<Label Text="{Binding Person.PhoneNumber}"/>
+		<StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+			<imageCircle:CircleImage Source="{Binding Person.Image.Url}" HeightRequest="150" WidthRequest="150" BorderColor="White" BorderThickness="1"/>
+			<Label Text="{Binding Person.DisplayName}" HorizontalOptions="Center" FontSize="26"/>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
