@@ -3,9 +3,22 @@
 		     x:Class="ModernDirectory.Pages.DirectoryDetailPage" Style="{StaticResource DefaultContentPageStyle}"
 	   		 xmlns:imageCircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions" Title="Detail">
 	<ContentPage.Content>
-		<StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-			<imageCircle:CircleImage Source="{Binding Person.Image.Url}" HeightRequest="150" WidthRequest="150" BorderColor="White" BorderThickness="1"/>
-			<Label Text="{Binding Person.DisplayName}" HorizontalOptions="Center" FontSize="26"/>
-		</StackLayout>
+
+		<RelativeLayout>
+			<imageCircle:CircleImage Source="{Binding Person.Image.Url}" Aspect="AspectFill" 
+								     BorderColor="Black" BorderThickness="1"
+									RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.3}"
+									RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.3}"
+									RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=150}"
+									RelativeLayout.HeightConstraint="{ConstraintExpression Type=Constant, Constant=150}"/>
+
+			<Label Text="{Binding Person.DisplayName}" HorizontalOptions="Center" FontSize="26" XAlign="Center"
+									RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0}"
+									RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.6}"
+									RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
+									RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.2}"/>
+									
+		</RelativeLayout>
+
 	</ContentPage.Content>
 </ContentPage>
