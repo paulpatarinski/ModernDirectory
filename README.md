@@ -22,5 +22,6 @@ This app contains the following features :
 
 ##Thanks To
 
-- Joe Suave for http://www.joesauve.com/using-xamarin-auth-with-xamarin-forms/
-- Adam Kemp for GetRenderer View Extension method
+- [Joe Suave](https://github.com/jsauve) for http://www.joesauve.com/using-xamarin-auth-with-xamarin-forms/
+- [Adam Kemp](https://github.com/TheRealAdamKemp) for GetRenderer View Extension method
+- [georgejecook](https://github.com/georgejecook) for [Fast Cell](https://github.com/georgejecook/xamarinFastCell)
