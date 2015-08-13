@@ -8,6 +8,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System;
+using ModernDirectory.Utilities.Codes;
 
 namespace ModernDirectory.Pages
 {
@@ -17,9 +18,18 @@ namespace ModernDirectory.Pages
 		{
 			InitializeComponent ();
 			BindingContext = new DirectoryViewModel (new DirectoryService());
-
 			Device.OnPlatform (Android: () =>
 				NavigationPage.SetHasNavigationBar (this, false));
+		}
+
+		protected override async void OnAppearing ()
+		{
+			base.OnAppearing ();
+
+			if(string.IsNullOrWhiteSpace(AppProperties.LinkedInAccessKey))
+			{
+				await Navigation.PushAsync (new OAuthLoginPage ());
+			}
 		}
 
 		private async void Listview_ItemSelected (object sender, SelectedItemChangedEventArgs e)

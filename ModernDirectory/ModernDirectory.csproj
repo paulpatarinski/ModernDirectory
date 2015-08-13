@@ -54,6 +54,10 @@
     <Compile Include="CustomControls\ExtendedListview.cs" />
     <Compile Include="Services\IDirectoryService.cs" />
     <Compile Include="Utilities\Behaviors\FadeToBehavior.cs" />
+    <Compile Include="Pages\OAuthLoginPage.cs" />
+    <Compile Include="Services\IOAuthService.cs" />
+    <Compile Include="Utilities\Codes\AppProperties.cs" />
+    <Compile Include="Pages\BaseContentPage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
@@ -88,6 +92,7 @@
     <Folder Include="CustomControls\" />
     <Folder Include="CustomControls\Cells\" />
     <Folder Include="Utilities\Behaviors\" />
+    <Folder Include="Utilities\Codes\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\DirectoryPage.xaml">

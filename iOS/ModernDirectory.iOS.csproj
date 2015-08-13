@@ -92,6 +92,9 @@
     <Reference Include="RoundedBoxView.Forms.Plugin.iOSUnified">
       <HintPath>..\packages\Xam.Plugins.Forms.RoundedBoxView.1.0.0.5\lib\Xamarin.iOS10\RoundedBoxView.Forms.Plugin.iOSUnified.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Auth.iOS">
+      <HintPath>..\Components\xamarin.auth-1.2.3.1\lib\ios-unified\Xamarin.Auth.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ModernDirectory\ModernDirectory.csproj">
@@ -129,6 +132,8 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\FastCellRenderer.cs" />
     <Compile Include="Helpers\FastCellCache.cs" />
+    <Compile Include="Services\OAuthService.cs" />
+    <Compile Include="ExtensionsMethods\ViewExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="ITunesArtwork" />
@@ -139,5 +144,13 @@
   <ItemGroup>
     <Folder Include="Renderers\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Services\" />
+    <Folder Include="ExtensionsMethods\" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="xamarin.auth">
+      <Version>1.2.3.1</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
   </ItemGroup>
 </Project>

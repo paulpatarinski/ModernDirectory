@@ -25,6 +25,8 @@ namespace ModernDirectory.iOS
 
 			return base.FinishedLaunching (app, options);
 		}
+
+	
 	}
 }
 
