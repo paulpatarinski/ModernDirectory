@@ -15,9 +15,14 @@ namespace ModernDirectory.Utilities.ExtensionsMethods
 			if (string.IsNullOrWhiteSpace (fullname))
 				return string.Empty;
 
-			var initials = new Regex(@"(\b[a-zA-Z])[a-zA-Z]* ?");
+			var initialsReg = new Regex(@"(\b[a-zA-Z])[a-zA-Z]* ?");
 
-			return initials.Replace(fullname, "$1");
+			var initialsFull = initialsReg.Replace (fullname, "$1");
+
+			if (initialsFull.Length == 1)
+				return initialsFull;
+
+			return initialsFull.Substring (0,2);
 		}
 	}
 }

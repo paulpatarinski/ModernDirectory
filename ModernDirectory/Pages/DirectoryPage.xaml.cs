@@ -26,7 +26,7 @@ namespace ModernDirectory.Pages
 		{
 			base.OnAppearing ();
 
-			if(string.IsNullOrWhiteSpace(AppProperties.LinkedInAccessKey))
+			if(string.IsNullOrWhiteSpace(AppProperties.GooglePlusAccessToken))
 			{
 				await Navigation.PushAsync (new OAuthLoginPage ());
 			}
@@ -65,16 +65,16 @@ namespace ModernDirectory.Pages
 				//Simulate long server call
 				await Task.Delay (TimeSpan.FromSeconds (2)).ContinueWith ((r) =>{
 
-					Device.BeginInvokeOnMainThread (() =>
-						{
-							if (string.IsNullOrWhiteSpace(e.NewTextValue))
-								peopleListview.ItemsSource = _originalSource;
-							else
-								peopleListview.ItemsSource = new ObservableCollection<Person>(_originalSource.Where(p => p.FullName.ToLower ().Contains(e.NewTextValue.ToLower ()) 
-									|| p.PhoneNumber.Contains (e.NewTextValue)));
-
-							peopleListview.IsRefreshing = false;
-						});
+//					Device.BeginInvokeOnMainThread (() =>
+//						{
+//							if (string.IsNullOrWhiteSpace(e.NewTextValue))
+//								peopleListview.ItemsSource = _originalSource;
+//							else
+//								peopleListview.ItemsSource = new ObservableCollection<Person>(_originalSource.Where(p => p.FullName.ToLower ().Contains(e.NewTextValue.ToLower ()) 
+//									|| p.PhoneNumber.Contains (e.NewTextValue)));
+//
+//							peopleListview.IsRefreshing = false;
+//						});
 				});
 			
 			}

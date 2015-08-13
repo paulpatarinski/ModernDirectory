@@ -2,32 +2,49 @@
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using ModernDirectory.Models;
-using System.Threading;
+using Refit;
+using System.Net.Http;
+using ModernDirectory.Utilities.Codes;
+using System.Diagnostics;
+using Xamarin.Forms;
 
 namespace ModernDirectory.Services
 {
 	public class DirectoryService : IDirectoryService
 	{
-		private const int SERVER_CALL_DELAY_IN_SEC = 2;
+		public DirectoryService ()
+		{
+			_googlePlusApi = RestService.For<IGooglePlusApi>(new HttpClient(new AuthenticatedHttpClientHandler(GetToken))
+				{ BaseAddress = new Uri("https://www.googleapis.com/plus/v1") });
+		}
+
+		IGooglePlusApi _googlePlusApi;
+		string _nextPageToken = "";
 
 		public async Task<IEnumerable<Person>> GetPeopleAsync(PagedDataQuery query)
 		{
 			var result = new List<Person> ();
 
-			//Simulate server call
-			await Task.Delay (TimeSpan.FromSeconds (SERVER_CALL_DELAY_IN_SEC)).ContinueWith ((r) => {
-				for (int i = 0; i < query.PageSize; i++) {
-					if(i % 2 == 0)
-					{
-						result.Add (new Person{FirstName = "John", LastName = "Doe", PhoneNumber = String.Format ("(773) 782-234{0}", i % 10)});
-					}
-					else{
-						result.Add (new Person{FirstName = "Jane", LastName = "Doe", PhoneNumber = String.Format ("(224) 323-234{0}", i % 10)});
-					}
-				}	
-			});
+			try {
+				var searchQuery = "fish";
+
+				var peoplePayload = await _googlePlusApi.SearchPeopleAsync(searchQuery, query.PageSize,_nextPageToken);
+
+				_nextPageToken = peoplePayload.nextPageToken;
+
+				result = peoplePayload.People;
+
+			} catch (Exception ex) {
+				//todo replace with proper error handling
+				Debug.WriteLine (ex);
+			}
 
 			return result;
+		}
+
+		private async Task<string> GetToken()
+		{
+			return await Task.FromResult<string> (AppProperties.GooglePlusAccessToken);
 		}
 	}
 }

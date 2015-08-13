@@ -21,17 +21,17 @@
 		</RelativeLayout>
 		
 
-		<Label Text="{Binding FullName}" Style="{StaticResource FullNameStyle}"
+		<Label Text="{Binding DisplayName}" Style="{StaticResource FullNameStyle}"
 			RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=77}"
 			RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.23}"
 			RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.75}"
 			RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.23}"/>
 
-		<Label Text="{Binding PhoneNumber}" Style="{StaticResource DetailTextStyle}"
+<!--		<Label Text="{Binding PhoneNumber}" Style="{StaticResource DetailTextStyle}"
 			RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=77}"
 			RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.53}"
 			RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.75}"
-			RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.23}"/>
+			RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.23}"/>-->
 
 		<BoxView BackgroundColor="{StaticResource Grey200}"
 			RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0}"

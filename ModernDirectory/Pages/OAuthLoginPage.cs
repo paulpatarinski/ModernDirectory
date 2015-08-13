@@ -13,12 +13,13 @@ namespace ModernDirectory.Pages
 			//TOdo : add back when the dep service works
 			_authService = DependencyService.Get<IOAuthService> ();
 
-			const string clientId = "77209vuoijv1f4";
-			const string clientSecret = "cW7qN5MZFNot1GlY";
-			const string scope = "r_basicprofile";
-			var authorizeUrl =  new Uri ("https://www.linkedin.com/uas/oauth2/authorization");
+			const string clientId = "872010536308-7bl5lrkkjnghag6gt70uvaegj3cgn0h4.apps.googleusercontent.com";
+			const string clientSecret = "fscVN3S_0Zbs4P-NJom1B_Lp";
+			const string scope = "https://www.googleapis.com/auth/plus.login";
+			var authorizeUrl =  new Uri ("https://accounts.google.com/o/oauth2/auth");
+//			var redirectUrl= new Uri ("urn:ietf:wg:oauth:2.0:oob");
 			var redirectUrl= new Uri ("https://github.com/paulpatarinski/ModernDirectory/blob/master/Screenshots/ModernDirectory_1.png");
-			var accessTokenUrl =  new Uri ("https://www.linkedin.com/uas/oauth2/accessToken");
+			var accessTokenUrl =  new Uri ("https://accounts.google.com/o/oauth2/token");
 
 			_authService.Initialize (clientId, clientSecret, scope, authorizeUrl, redirectUrl, accessTokenUrl);
 
@@ -34,7 +35,7 @@ namespace ModernDirectory.Pages
 			{
 				Debug.WriteLine ("Successfully authenticated");
 
-				AppProperties.LinkedInAccessKey = e.AccessToken;
+				AppProperties.GooglePlusAccessToken = e.AccessToken;
 			
 				await Navigation.PushAsync (new DirectoryPage()).ContinueWith ((r) =>{
 					Device.BeginInvokeOnMainThread(() => {
@@ -51,7 +52,7 @@ namespace ModernDirectory.Pages
 		{
 			base.OnAppearing ();
 
-			if(string.IsNullOrWhiteSpace(AppProperties.LinkedInAccessKey))
+			if(string.IsNullOrWhiteSpace(AppProperties.GooglePlusAccessToken))
 				_authService.ShowUI (this);
 		}
 	}
