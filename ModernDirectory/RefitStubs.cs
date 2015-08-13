@@ -70,9 +70,9 @@ namespace ModernDirectory.Services
             Client = client;
         }
 
-        public virtual Task<GooglePeoplePayload> GetPeopleAsync()
+        public virtual Task<GooglePeoplePayload> GetPeopleAsync(int pageSize,string nextPageToken)
         {
-            var arguments = new object[] {  };
+            var arguments = new object[] { pageSize,nextPageToken };
             return (Task<GooglePeoplePayload>) methodImpls["GetPeopleAsync"](Client, arguments);
         }
 

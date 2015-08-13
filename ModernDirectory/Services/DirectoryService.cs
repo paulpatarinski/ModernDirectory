@@ -19,9 +19,28 @@ namespace ModernDirectory.Services
 		}
 
 		IGooglePlusApi _googlePlusApi;
-		string _nextPageToken = "";
+		string _nextPageToken = string.Empty;
 
 		public async Task<IEnumerable<Person>> GetPeopleAsync(PagedDataQuery query)
+		{
+			var result = new List<Person> ();
+
+			try {
+				var peoplePayload = await _googlePlusApi.GetPeopleAsync(query.PageSize, _nextPageToken);
+
+				_nextPageToken = peoplePayload.nextPageToken == null ? string.Empty : peoplePayload.nextPageToken;
+
+				result = peoplePayload.People;
+
+			} catch (Exception ex) {
+				//todo replace with proper error handling
+				Debug.WriteLine (ex);
+			}
+
+			return result;
+		}
+
+		public async Task<IEnumerable<Person>> SearchPeopleAsync(PagedDataQuery query)
 		{
 			var result = new List<Person> ();
 
