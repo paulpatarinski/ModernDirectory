@@ -150,7 +150,6 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\FastCellRenderer.cs" />
     <Compile Include="Helpers\FastCellCache.cs" />
-    <Compile Include="Services\OAuthService.cs" />
     <Compile Include="ExtensionsMethods\ViewExtensions.cs" />
     <Compile Include="RefitStubs.cs" />
   </ItemGroup>

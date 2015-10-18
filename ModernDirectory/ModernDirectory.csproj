@@ -53,13 +53,8 @@
     <Compile Include="CustomControls\ExtendedListview.cs" />
     <Compile Include="Services\IDirectoryService.cs" />
     <Compile Include="Utilities\Behaviors\FadeToBehavior.cs" />
-    <Compile Include="Pages\OAuthLoginPage.cs" />
-    <Compile Include="Services\IOAuthService.cs" />
     <Compile Include="Utilities\Codes\AppProperties.cs" />
     <Compile Include="RefitStubs.cs" />
-    <Compile Include="Services\ILinkedinService.cs" />
-    <Compile Include="Services\AuthenticatedHttpClientHandler.cs" />
-    <Compile Include="Services\IGooglePlusApi.cs" />
     <Compile Include="Models\GooglePeoplePayload.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

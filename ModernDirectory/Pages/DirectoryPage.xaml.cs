@@ -17,27 +17,18 @@ namespace ModernDirectory.Pages
 		public DirectoryPage ()
 		{
 			InitializeComponent ();
-			BindingContext = new DirectoryViewModel (new DirectoryService());
+			BindingContext = new DirectoryViewModel (new DirectoryService ());
 			Device.OnPlatform (Android: () =>
 				NavigationPage.SetHasNavigationBar (this, false));
 		}
 
-		protected override async void OnAppearing ()
-		{
-			base.OnAppearing ();
-
-			if(string.IsNullOrWhiteSpace(AppProperties.GooglePlusAccessToken))
-			{
-				await Navigation.PushAsync (new OAuthLoginPage ());
-			}
-		}
-
+	
 		private async void Listview_ItemSelected (object sender, SelectedItemChangedEventArgs e)
 		{
 			if (e.SelectedItem == null)
 				return;
 
-			await Navigation.PushAsync (new DirectoryDetailPage(e.SelectedItem as Person));
+			await Navigation.PushAsync (new DirectoryDetailPage (e.SelectedItem as Person));
 
 			peopleListview.SelectedItem = null;
 		}
@@ -50,20 +41,19 @@ namespace ModernDirectory.Pages
 		/// </summary>
 		/// <param name="sender">Sender.</param>
 		/// <param name="e">E.</param>
-		private async void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
+		private async void SearchBar_OnTextChanged (object sender, TextChangedEventArgs e)
 		{
 			//todo : implement using server call
 			var people = peopleListview.ItemsSource as ObservableCollection<Person>;
 
-			if(people != null)
-			{
+			if (people != null) {
 				if (_originalSource == null)
 					_originalSource = people;
 				
 				peopleListview.IsRefreshing = true;
 
 				//Simulate long server call
-				await Task.Delay (TimeSpan.FromSeconds (2)).ContinueWith ((r) =>{
+				await Task.Delay (TimeSpan.FromSeconds (2)).ContinueWith ((r) => {
 
 //					Device.BeginInvokeOnMainThread (() =>
 //						{

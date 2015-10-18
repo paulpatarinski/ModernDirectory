@@ -13,10 +13,8 @@ namespace ModernDirectory
 			InitializeComponent ();
 			// The root page of your application
 
-			MainPage = new NavigationPage(new OAuthLoginPage());;
+			MainPage = new NavigationPage (new DirectoryPage ());
 		}
-
-		private NavigationPage _navPage;
 
 		protected override void OnStart ()
 		{

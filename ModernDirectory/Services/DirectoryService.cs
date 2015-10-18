@@ -14,23 +14,19 @@ namespace ModernDirectory.Services
 	{
 		public DirectoryService ()
 		{
-			_googlePlusApi = RestService.For<IGooglePlusApi>(new HttpClient(new AuthenticatedHttpClientHandler(GetToken))
-				{ BaseAddress = new Uri("https://www.googleapis.com/plus/v1") });
 		}
 
-		IGooglePlusApi _googlePlusApi;
-		string _nextPageToken = string.Empty;
-
-		public async Task<IEnumerable<Person>> GetPeopleAsync(PagedDataQuery query)
+		public async Task<IEnumerable<Person>> GetPeopleAsync (PagedDataQuery query)
 		{
 			var result = new List<Person> ();
 
 			try {
-				var peoplePayload = await _googlePlusApi.GetPeopleAsync(query.PageSize, _nextPageToken);
 
-				_nextPageToken = peoplePayload.nextPageToken == null ? string.Empty : peoplePayload.nextPageToken;
-
-				result = peoplePayload.People;
+				for (int i = 0; i < 10; i++) {
+					result.Add (new Person {
+						DisplayName = string.Format ("John Doe {0}", i)
+					});
+				}
 
 			} catch (Exception ex) {
 				//todo replace with proper error handling
@@ -40,18 +36,18 @@ namespace ModernDirectory.Services
 			return result;
 		}
 
-		public async Task<IEnumerable<Person>> SearchPeopleAsync(PagedDataQuery query)
+		public async Task<IEnumerable<Person>> SearchPeopleAsync (PagedDataQuery query)
 		{
 			var result = new List<Person> ();
 
 			try {
 				var searchQuery = "fish";
 
-				var peoplePayload = await _googlePlusApi.SearchPeopleAsync(searchQuery, query.PageSize,_nextPageToken);
-
-				_nextPageToken = peoplePayload.nextPageToken;
-
-				result = peoplePayload.People;
+//				var peoplePayload = await _googlePlusApi.SearchPeopleAsync(searchQuery, query.PageSize,_nextPageToken);
+//
+//				_nextPageToken = peoplePayload.nextPageToken;
+//
+//				result = peoplePayload.People;
 
 			} catch (Exception ex) {
 				//todo replace with proper error handling
@@ -59,11 +55,6 @@ namespace ModernDirectory.Services
 			}
 
 			return result;
-		}
-
-		private async Task<string> GetToken()
-		{
-			return await Task.FromResult<string> (AppProperties.GooglePlusAccessToken);
 		}
 	}
 }
