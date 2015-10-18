@@ -153,6 +153,7 @@
     <Compile Include="Services\OAuthService.cs" />
     <Compile Include="ExtensionsMethods\ViewExtensions.cs" />
     <Compile Include="RefitStubs.cs" />
+    <Compile Include="ExtensionsMethods\XamOAuthExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="ITunesArtwork" />

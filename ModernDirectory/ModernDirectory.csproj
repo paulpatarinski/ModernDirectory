@@ -61,6 +61,8 @@
     <Compile Include="Services\AuthenticatedHttpClientHandler.cs" />
     <Compile Include="Services\IGooglePlusApi.cs" />
     <Compile Include="Models\GooglePeoplePayload.cs" />
+    <Compile Include="Utilities\Codes\OAuthServiceType.cs" />
+    <Compile Include="Models\OAuthAccount.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
