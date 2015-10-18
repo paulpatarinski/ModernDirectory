@@ -7,6 +7,11 @@ using System.Net.Http;
 using ModernDirectory.Utilities.Codes;
 using System.Diagnostics;
 using Xamarin.Forms;
+using Newtonsoft.Json;
+using System.Reflection;
+using System.IO;
+using System.Linq;
+using ModernDirectory.Utilities.ExtensionsMethods;
 
 namespace ModernDirectory.Services
 {
@@ -14,7 +19,11 @@ namespace ModernDirectory.Services
 	{
 		public DirectoryService ()
 		{
+			_randomPeopleService = RestService.For<IRandomPeopleService> ("http://api.randomuser.me");
+
 		}
+
+		private IRandomPeopleService _randomPeopleService;
 
 		public async Task<IEnumerable<Person>> GetPeopleAsync (PagedDataQuery query)
 		{
@@ -22,11 +31,19 @@ namespace ModernDirectory.Services
 
 			try {
 
-				for (int i = 0; i < 10; i++) {
-					result.Add (new Person {
-						DisplayName = string.Format ("John Doe {0}", i)
-					});
-				}
+				var peoplePayload = await _randomPeopleService.GetRandomPeople (query.PageSize);
+
+				//Delay an additional time to simulate long running 
+				await Task.Delay (TimeSpan.FromSeconds (1));
+
+				var people = from userResult in peoplePayload.results
+				             select new Person {
+					DisplayName = userResult.user.name.first.UppercaseFirst () + " " + userResult.user.name.last.UppercaseFirst (),
+					PhoneNumber = userResult.user.phone,
+					Picture = userResult.user.picture
+				};
+
+				result.AddRange (people);
 
 			} catch (Exception ex) {
 				//todo replace with proper error handling
@@ -43,12 +60,6 @@ namespace ModernDirectory.Services
 			try {
 				var searchQuery = "fish";
 
-//				var peoplePayload = await _googlePlusApi.SearchPeopleAsync(searchQuery, query.PageSize,_nextPageToken);
-//
-//				_nextPageToken = peoplePayload.nextPageToken;
-//
-//				result = peoplePayload.People;
-
 			} catch (Exception ex) {
 				//todo replace with proper error handling
 				Debug.WriteLine (ex);
@@ -56,6 +67,36 @@ namespace ModernDirectory.Services
 
 			return result;
 		}
+
+
+		private static string GetEmbeddedResourceString (Assembly assembly, string resourceFileName)
+		{
+			var stream = GetEmbeddedResourceStream (assembly, resourceFileName);
+
+			using (var streamReader = new StreamReader (stream)) {
+				return streamReader.ReadToEnd ();
+			}
+		}
+
+		private static Stream GetEmbeddedResourceStream (Assembly assembly, string resourceFileName)
+		{
+			var resourceNames = assembly.GetManifestResourceNames ();
+
+			var resourcePaths = resourceNames
+				.Where (x => x.EndsWith (resourceFileName, StringComparison.CurrentCultureIgnoreCase))
+				.ToArray ();
+
+			if (!resourcePaths.Any ()) {
+				throw new Exception (string.Format ("Resource ending with {0} not found.", resourceFileName));
+			}
+
+			if (resourcePaths.Count () > 1) {
+				throw new Exception (string.Format ("Multiple resources ending with {0} found: {1}{2}", resourceFileName, Environment.NewLine, string.Join (Environment.NewLine, resourcePaths)));
+			}
+
+			return assembly.GetManifestResourceStream (resourcePaths.Single ());
+		}
+
 	}
 }
 

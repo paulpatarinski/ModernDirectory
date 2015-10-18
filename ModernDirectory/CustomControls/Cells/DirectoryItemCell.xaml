@@ -12,7 +12,7 @@
 					RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.15}"
 					RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.8}">
 
-				<imageCircle:CircleImage Source="{Binding Image.Url}" HeightRequest="50" WidthRequest="50" Aspect="AspectFill" BorderColor="White" BorderThickness="1"/>
+				<imageCircle:CircleImage Source="{Binding Picture.thumbnail}" HeightRequest="50" WidthRequest="50" Aspect="AspectFill" BorderColor="White" BorderThickness="1"/>
 <!--				<customControls:RoundedBoxView CornerRadius="25" BackgroundColor="{StaticResource Cyan600}" HeightRequest="50" WidthRequest="50"/>-->
 
 <!--				<Label Text="{Binding Initials}" Style="{StaticResource InitialsTextStyle}" XAlign="Center" YAlign="Center"
@@ -29,11 +29,11 @@
 			RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.75}"
 			RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.25}"/>
 
-<!--		<Label Text="{Binding PhoneNumber}" Style="{StaticResource DetailTextStyle}"
+		<Label Text="{Binding PhoneNumber}" Style="{StaticResource DetailTextStyle}"
 			RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=77}"
 			RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.53}"
 			RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.75}"
-			RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.23}"/>-->
+			RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.23}"/>
 
 		<BoxView BackgroundColor="{StaticResource Grey200}"
 			RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0}"

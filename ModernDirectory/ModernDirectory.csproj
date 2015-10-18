@@ -35,7 +35,6 @@
       <DependentUpon>DirectoryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\DirectoryViewModel.cs" />
-    <Compile Include="Services\DirectoryService.cs" />
     <Compile Include="Utilities\ExtensionsMethods\StringExtensions.cs" />
     <Compile Include="CustomControls\Cells\FastCell.cs" />
     <Compile Include="CustomControls\Cells\DirectoryItemCell.xaml.cs">
@@ -55,7 +54,10 @@
     <Compile Include="Utilities\Behaviors\FadeToBehavior.cs" />
     <Compile Include="Utilities\Codes\AppProperties.cs" />
     <Compile Include="RefitStubs.cs" />
-    <Compile Include="Models\GooglePeoplePayload.cs" />
+    <Compile Include="Services\DirectoryService.cs" />
+    <Compile Include="Services\IRandomPeopleService.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\RandomUsersPayload.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
