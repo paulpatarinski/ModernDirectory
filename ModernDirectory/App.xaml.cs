@@ -8,12 +8,18 @@ namespace ModernDirectory
 {
 	public partial class App : Application
 	{
+		private static NavigationPage _navPage;
+
 		public App ()
 		{
 			InitializeComponent ();
-			// The root page of your application
 
-			MainPage = new NavigationPage (new DirectoryPage ());
+			// The root page of your application
+			_navPage = new NavigationPage (new DirectoryPage ()) {
+				BarBackgroundColor = Color.FromHex ("#3F51B5"),
+				BarTextColor = Color.White
+			};
+			MainPage = _navPage;
 		}
 
 		protected override void OnStart ()
