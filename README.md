@@ -26,3 +26,4 @@ This app contains the following features :
 - [Adam Kemp](https://github.com/TheRealAdamKemp) for GetRenderer View Extension method
 - [George Cook](https://github.com/georgejecook) for [Fast Cell](https://github.com/georgejecook/xamarinFastCell)
 - [Paul Betts](https://github.com/paulcbetts) for [Refit](https://github.com/paulcbetts/refit)
+- http://www.pttrns.com 
