@@ -152,6 +152,7 @@
     <Compile Include="Helpers\FastCellCache.cs" />
     <Compile Include="ExtensionsMethods\ViewExtensions.cs" />
     <Compile Include="RefitStubs.cs" />
+    <Compile Include="Renderers\FullScreenContentPageRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="ITunesArtwork" />
