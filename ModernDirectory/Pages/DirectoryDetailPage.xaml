@@ -7,23 +7,43 @@
 
 		<RelativeLayout>
 
+			
+
 			<StackLayout BackgroundColor="#3F51B5"
 						RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0}"
 						RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0}"
 						RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
 						RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.2}"/>
 
+			<Label Text="{Binding Person.Username}" FontSize="22" TextColor="White"
+						RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.45}"
+						RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.14}"
+						RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.54}"
+						RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.2}"/>
 
 			<imageCircle:CircleImage Source="{Binding Person.Picture.large}" Aspect="AspectFill" 
-								     BorderColor="Black" BorderThickness="1"
-									RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.3}"
-									RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.3}"
-									RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=150}"
-									RelativeLayout.HeightConstraint="{ConstraintExpression Type=Constant, Constant=150}"/>
+								    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.07}"
+									RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.04}"
+									RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=120}"
+									RelativeLayout.HeightConstraint="{ConstraintExpression Type=Constant, Constant=120}"/>
 
-			<Label Text="{Binding Person.DisplayName}" HorizontalOptions="Center" FontSize="26" XAlign="Center"
-									RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0}"
-									RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.6}"
+		
+
+			<Label Text="{Binding Person.DisplayName}" FontSize="22" FontAttributes="Bold"
+									RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.07}"
+									RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.3}"
+									RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
+									RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.2}"/>
+
+			<Label Text="{Binding Person.PhoneNumber}" Style="{StaticResource DetailTextStyle}"
+									RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.07}"
+									RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.36}"
+									RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
+									RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.2}"/>
+
+			<Label Text="{Binding Person.CityAndState}" Style="{StaticResource DetailTextStyle}"
+									RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.07}"
+									RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.4}"
 									RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
 									RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.2}"/>
 									

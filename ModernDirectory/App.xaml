@@ -17,7 +17,7 @@
 	    		<Setter Property="Font" Value="Bold"/>
 	    	</Style>
 	    	<Style x:Key="DetailTextStyle" TargetType="Label">
-	    		<Setter Property="TextColor" Value="{StaticResource Grey400}"/>
+	    		<Setter Property="TextColor" Value="{StaticResource Grey500}"/>
 	    		<Setter Property="Font" Value="Small"/>
 	    	</Style>
 	    	<Style x:Key="InitialsTextStyle" TargetType="Label">

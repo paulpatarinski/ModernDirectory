@@ -40,7 +40,9 @@ namespace ModernDirectory.Services
 					DisplayName = userResult.user.name.first.UppercaseFirst () + " " + userResult.user.name.last.UppercaseFirst (),
 					PhoneNumber = userResult.user.phone,
 					Email = userResult.user.email,
-					Picture = userResult.user.picture
+					Picture = userResult.user.picture,
+					Username = "@" + userResult.user.username,
+					Address = userResult.user.location
 				};
 
 				result.AddRange (people);
