@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace ModernDirectory.Services
 {
-	public interface IRandomPeopleService
+	public interface IRandomUserService
 	{
 		[Get ("/?results={numOfPeople}")]
 		Task<RandomUsersPayload> GetRandomPeople (int numOfPeople);

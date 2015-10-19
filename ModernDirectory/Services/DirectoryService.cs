@@ -19,11 +19,10 @@ namespace ModernDirectory.Services
 	{
 		public DirectoryService ()
 		{
-			_randomPeopleService = RestService.For<IRandomPeopleService> ("http://api.randomuser.me");
-
+			_randomUserService = RestService.For<IRandomUserService> ("http://api.randomuser.me");
 		}
 
-		private IRandomPeopleService _randomPeopleService;
+		private IRandomUserService _randomUserService;
 
 		public async Task<IEnumerable<Person>> GetPeopleAsync (PagedDataQuery query)
 		{
@@ -31,7 +30,7 @@ namespace ModernDirectory.Services
 
 			try {
 
-				var peoplePayload = await _randomPeopleService.GetRandomPeople (query.PageSize);
+				var peoplePayload = await _randomUserService.GetRandomPeople (query.PageSize);
 
 				//Delay an additional time to simulate long running 
 				await Task.Delay (TimeSpan.FromSeconds (1));
@@ -40,6 +39,7 @@ namespace ModernDirectory.Services
 				             select new Person {
 					DisplayName = userResult.user.name.first.UppercaseFirst () + " " + userResult.user.name.last.UppercaseFirst (),
 					PhoneNumber = userResult.user.phone,
+					Email = userResult.user.email,
 					Picture = userResult.user.picture
 				};
 
